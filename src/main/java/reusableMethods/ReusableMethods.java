@@ -77,7 +77,7 @@ public class ReusableMethods {
     public static boolean isDisplayElement(WebElement webElement) {
         try {
             return new FluentWait<>(DriverManager.getDriver())
-                    .withTimeout(java.time.Duration.ofSeconds(10))
+                    .withTimeout(Duration.ofSeconds(10))
                     //   .withTimeout(Duration.ofSeconds(10))
                     .pollingEvery(Duration.ofMillis(500))
                     .ignoring(NoSuchElementException.class)
@@ -91,7 +91,7 @@ public class ReusableMethods {
     public static boolean isDisplayElements(List<WebElement> webElement) {
         try {
             return new FluentWait<>(DriverManager.getDriver())
-                           .withTimeout(java.time.Duration.ofSeconds(5))
+                           .withTimeout(Duration.ofSeconds(5))
                            .pollingEvery(Duration.ofMillis(250))
                            .ignoring(NoSuchElementException.class)
                            .until(ExpectedConditions.visibilityOfAllElements(webElement)) != null;
