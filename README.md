@@ -45,7 +45,7 @@ mucahit-selcuk-case
 │   ├──test
 │   │    └── java
 │   │        └── tests            # Testler
-│   └── resources                 #log4j2 konfigürasyon doyası       
+│   └── resources                 #log4j2 konfigürasyon dosyası       
 │
 ├── pom.xml
 └── README.md
