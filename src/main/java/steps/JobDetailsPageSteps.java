@@ -12,8 +12,8 @@ public class JobDetailsPageSteps extends JobDetailsPage {
 
     public void clickViewRoleButton() {
         Log.info("'View Role' Butonuna tıklanır");
-        scrollToElementWithAction(jobsPositionTitles.getFirst());
-        jobTitle = jobsPositionTitles.getFirst().getText();
+        scrollToElementWithAction(jobsPositionTitles.get(0));
+        jobTitle = jobsPositionTitles.get(0).getText();
         hoverElement(viewRoleButton,2);
         clickElement(viewRoleButton);
     }
