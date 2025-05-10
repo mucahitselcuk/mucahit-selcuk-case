@@ -36,14 +36,15 @@ mucahit-selcuk-case
 ├── src
 │   ├── main
 │   │   └── java
-│   │   ├── base            # Temel yapıların yer aldığı sınıflar (örneğin BaseTest, StepInit vb.)
+│   │   ├── base            # Temel yapıların yer aldığı sınıflar (örneğin BaseTest)
 │   │   ├── driver          # Driver yönetimi (DriverManager)
 │   │   ├── pages           # Sayfa nesne modeli sınıfları (POM)
 │   │   ├── reusablemethods # Ortak kullanılabilir metotlar ve Logger sınıfı
+│   │   ├── stepinit        # Step'lerin ortak sınıfları
 │   │   └── steps           # Adım tanımlamaları (test senaryolarında kullanılan adımlar)
 │   ├──test
 │   │    └── java
-│   │        └── tests            # Test sınıfları
+│   │        └── tests            # Testler
 │   └── resources                 #log4j2 konfigürasyon doyası       
 │
 ├── pom.xml
