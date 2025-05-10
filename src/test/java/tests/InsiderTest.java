@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import reusableMethods.Log;
 import stepInit.StepInit;
 
 public class InsiderTest extends StepInit {
@@ -12,5 +11,10 @@ public class InsiderTest extends StepInit {
         homePageSteps.isHomePageLoaded();
         homePageSteps.goToCareersPage();
         careersPageSteps.areCareerSectionsVisible();
+        qualityAssurancePageSteps.goToQualityAssurancePage();
+        qualityAssurancePageSteps.clickSeeAllQaJobsButtonAndCheck();
+        qualityAssurancePageSteps.checkJobsList();
+        jobDetailsPageSteps.clickViewRoleButton();
+        jobDetailsPageSteps.checkLeverApplicationPage();
     }
 }

@@ -12,9 +12,9 @@ public class HomePage extends ReusableMethods {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
-    @FindBy(css = "a[href='https://useinsider.com/careers/']")
+    @FindBy(xpath = "//a[@class='dropdown-sub' and contains (.,'Careers')]")
     public static WebElement careersDropDown;
-    @FindBy(id = "navbarDropdownMenuLink")
+    @FindBy(xpath = "//a[@id='navbarDropdownMenuLink' and contains (.,'Company')]")
     public static WebElement companyMenu;
     @FindBy(id = "wt-cli-accept-all-btn")
     public static WebElement acceptAllCookiesButton;

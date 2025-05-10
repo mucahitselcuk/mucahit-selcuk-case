@@ -1,5 +1,13 @@
+/*
+ * MIT License
+ * Copyright (c) 2025 Mücahit Selçuk
+ *
+ * See LICENSE.md file in the root directory for full license information.
+ */
+
 package reusableMethods;
 
+import base.BaseTest;
 import driver.DriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -8,9 +16,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
-import java.util.List;
+import java.util.Set;
 
-public class ReusableMethods {
+public class ReusableMethods extends BaseTest {
 
     static Wait<WebDriver> wt = new FluentWait<>(DriverManager.getDriver())
             .withTimeout(Duration.ofSeconds(20))
@@ -78,7 +86,6 @@ public class ReusableMethods {
         try {
             return new FluentWait<>(DriverManager.getDriver())
                     .withTimeout(Duration.ofSeconds(10))
-                    //   .withTimeout(Duration.ofSeconds(10))
                     .pollingEvery(Duration.ofMillis(500))
                     .ignoring(NoSuchElementException.class)
                     .until(ExpectedConditions.visibilityOf(webElement)).isDisplayed();
@@ -88,17 +95,26 @@ public class ReusableMethods {
         }
     }
 
-    public static boolean isDisplayElements(List<WebElement> webElement) {
+    public static void navigateToSpecificURL(String url) {
         try {
-            return new FluentWait<>(DriverManager.getDriver())
-                           .withTimeout(Duration.ofSeconds(5))
-                           .pollingEvery(Duration.ofMillis(250))
-                           .ignoring(NoSuchElementException.class)
-                           .until(ExpectedConditions.visibilityOfAllElements(webElement)) != null;
-        } catch (Exception e) {
-            Log.info("Element bulunamadı");
-            return false;
+            DriverManager.getDriver().navigate().to(url);
+            DriverManager.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        } catch (Exception ignored) {
         }
+        Log.info(" URL: " + url);
+    }
+
+    public static void switchToOtherTab() {
+        String currentTab = DriverManager.getDriver().getWindowHandle();
+        Set<String> handles = DriverManager.getDriver().getWindowHandles();
+        String newTab = null;
+        for (String handle : handles) {
+            if (!handle.equals(currentTab)) {
+                newTab = handle;
+                break;
+            }
+        }
+        DriverManager.getDriver().switchTo().window(newTab);
     }
 }
 
