@@ -28,8 +28,10 @@ public class QualityAssurancePageSteps extends QualityAssurancePage {
         waitVisibleByLocator(departmentText);
         clickElement(locationDropdown);
         clickElement(locationOfIstanbul);
+        waitSC(2);
         clickElement(departmentDropdown);
         clickElement(departmentOfQualityAssurance);
+        waitSC(3);
         Assert.assertTrue(isDisplayElement(jobsList), "İşler listelenmedi!");
     }
 
